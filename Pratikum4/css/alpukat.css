@@ -1,0 +1,94 @@
+
+body {
+    background-color: #00ff84;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h1 {
+    color: rgb(0, 149, 255);
+    text-align: center;
+    font-family: 'Arial Black', sans-serif;
+}
+
+p {
+    text-align: justify;
+    color: white;
+    line-height: 1.6;
+}
+
+h3 {
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+h3, ol {
+    font-size: 20px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+}
+
+.img {
+    border: 3px solid rgb(48, 195, 15);
+    border-radius: 10%;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.foto {
+    background-color: rgb(47, 197, 47);
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.foto img {
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10%;
+    width: 200px;
+    height: auto;
+}
+
+.promo {
+    text-align: center;
+    color: snow;
+    display: block;
+    background-color: rgb(0, 255, 13);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5%;
+
+}
+
+.cod {
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(0, 174, 255);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+
+}
+
+.cod p {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tombol {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}

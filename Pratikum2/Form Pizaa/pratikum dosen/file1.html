@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pizza</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f5f5f5;
+        }
+        table { 
+            border: 1px solid black; 
+            margin-bottom: 20px; 
+            background-color: white;
+        }
+        th, td { 
+            padding: 10px; 
+            border: 1px solid black; 
+            text-align: left; 
+        }
+        th { 
+            background-color: #f0f0f0; 
+        }
+        input[type="text"], input[type="number"], textarea { 
+            width: 300px; 
+            padding: 5px; 
+        }
+        fieldset { 
+            margin: 15px 0; 
+            padding: 15px; 
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+        ul { 
+            list-style: none; 
+        }
+        button { 
+            padding: 10px 20px; 
+            margin-right: 10px; 
+            cursor: pointer; 
+            font-size: 14px;
+        }
+        button[type="submit"] { 
+            background-color: #ff6b6b; 
+            color: white; 
+            border: none; 
+        }
+        button[type="reset"] { 
+            background-color: #999; 
+            color: white; 
+            border: none; 
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        .follow-btn {
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Black House | Pizza on Demand</h1>
+    <hr>
+    <p>"Order your dream pizza easily through our website. Choose your favorite toppings, customize your order to your liking, and complete your payment securely. We're ready to deliver hot pizza straight to your home."</p>
+    
+    <form id="pizzaForm">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th colspan="2">Your Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" name="name" id="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td><input type="text" name="address" id="address" required></td>
+                </tr>
+                <tr>
+                    <td><label for="telephone">Telephone Number:</label></td>
+                    <td><input type="text" name="telephone" id="telephone" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="text" name="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="delivery">Delivery Instructions:</label></td>
+                    <td><textarea name="delivery" id="delivery" cols="20" rows="4"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <fieldset>
+            <legend><b>Design Your Dream Pizza:</b></legend>
+            <p>Pizza Specs</p>
+            <p><b>Crust (Choose one):</b></p>
+            <ul style="list-style: none;">
+                <li>
+                    <input type="radio" name="crust" id="crust1" value="Classic White" required>
+                    <label for="crust1">Classic White</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="crust2" value="Multigrain">
+                    <label for="crust2">Multigrain</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="crust3" value="Cheese stuffed crust">
+                    <label for="crust3">Cheese stuffed crust</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="crust4" value="Gluten free">
+                    <label for="crust4">Gluten free</label>
+                </li>
+            </ul>
+
+            <p><b>Toppings (Pilih sebanyak yang Anda inginkan - bisa lebih dari 1):</b></p>
+            <ul style="list-style: none;">
+                <li>
+                    <input type="checkbox" name="toppings" id="top1" value="Red sauce">
+                    <label for="top1">Red sauce</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top2" value="White sauce">
+                    <label for="top2">White sauce</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top3" value="Mozzarela Cheese">
+                    <label for="top3">Mozzarela Cheese</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top4" value="Pepperoni">
+                    <label for="top4">Pepperoni</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top5" value="Mushrooms">
+                    <label for="top5">Mushrooms</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top6" value="Peppers">
+                    <label for="top6">Peppers</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="toppings" id="top7" value="Anchovies">
+                    <label for="top7">Anchovies</label>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <h4>Number</h4>
+            <label for="count">How Many Pizza:</label>
+            <input type="number" name="count" id="count" min="1" value="1" required>
+            <br><br>
+            <button type="submit">Bring me a pizza</button>
+            <button type="reset">Cancel</button>
+        </fieldset>
+    </form>
+
+    <script>
+        document.getElementById("pizzaForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const name = document.getElementById("name").value;
+            const address = document.getElementById("address").value;
+            const telephone = document.getElementById("telephone").value;
+            const email = document.getElementById("email").value;
+            const delivery = document.getElementById("delivery").value;
+            const crust = document.querySelector("input[name='crust']:checked").value;
+            const count = document.getElementById("count").value;
+            
+            // Ambil toppings yang dipilih
+            const toppings = [];
+            document.querySelectorAll("input[name='toppings']:checked").forEach(cb => {
+                toppings.push(cb.value);
+            });
+            const toppingsList = toppings.join(", ") || "Tidak ada";
+            
+            // Buat URL dengan query parameters
+            const queryParams = new URLSearchParams({
+                name: name,
+                address: address,
+                phone: telephone,
+                email: email,
+                instructions: delivery,
+                crust: crust,
+                toppings: toppingsList,
+                quantity: count
+            });
+            
+            // Redirect ke halaman kedua dengan data
+            window.location.href = "file2.html?" + queryParams.toString();
+        });
+    </script>
+</body>
+</html>
