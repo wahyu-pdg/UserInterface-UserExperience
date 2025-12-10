@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #imageArea img {
+            width: 300px;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Image Picker</h2>
+    <select id="pilihGambar" onchange="tampilGambar()">
+        <option value="">-- Pilih Gambar --</option>
+        <option value="">Anjing</option>
+        <option value="">Gorila</option>
+        <option value="">Kucing</option>
+        <option value="">Elang</option>
+        <option value="">Panda</option>
+        <option value="">Singa</option>
+    </select>
+
+    <div id="imageArea"></div>
+
+    <script>
+        function tampilGambar() {
+            let filename = document.getElementById("pilihGambar").value;
+            
+            if (filename === "") return;
+            alert("Ini gambar: " + filename);
+            document.getElementById("imageArea").innerHTML =
+                '<img src="' + filename + '" alt="gambar">';
+        }
+    </script>
+
+</body>
+</html>

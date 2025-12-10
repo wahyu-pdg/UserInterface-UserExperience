@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pizza</title>
+</head>
+
+<body>
+    <h1>Black Diamond | Pizza on Demand</h1>
+    <hr>
+    <p>"Order your dream pizza easily through our website. Choose your favorite toppings, customize your order to your
+        liking, and complete your payment securely. We're ready to deliver hot pizza straight to your home."</p>
+    <button><a href="https://www.tiktok.com/@sabuk.perang?is_from_webapp=1&sender_device=pc">Follow Sabuk Perang
+            !!!</a></button>
+    <form action="" method="post">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th colspan="2">Your Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" name="name" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="Address">Address:</label></td>
+                    <td><input type="text" address="address" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="Telephone Number">Telephone Number:</label></td>
+                    <td><input type="text" Telephone_Number="Telephone Number" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="Email">Email:</label></td>
+                    <td><input type="text" Email="Email" id=""></td>
+                </tr>
+                <tr>
+                    <td><label for="Delivery Instuctions">Delivery Instuctions:</label></td>
+                    <td><textarea name="" id="" cols="20" rows="4"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <fieldset>
+            <legend><b>Design Your Dream Pizza:</b></legend>
+            <p>Pizza Specs</p>
+            <p>Crust (Chosee one):</p>
+            <ul style="list-style: none;">
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Classic White</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Multigrain</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Cheese stuffed crust</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Gluten free</label>
+                </li>
+            </ul>
+            <p>Toppings (Choose as many as you want):</p>
+            <ul style="list-style: none;">
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Red sauce</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">White sauce</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Mozzarela Cheese</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Pepperoni</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Mushrooms</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Peppers</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Anchovies</label>
+                </li>
+                <li>
+                    <input type="radio" name="crust" id="cw">
+                    <label for="crust">Rendang</label>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <h4>Number</h4>
+            <label for="count">How Many Pizza</label>
+            <input type="number" name="count" id="">
+            <br>
+            <button type="submit"><a href="praktikum2b.html">Bring me a pizza</a></button>
+            <button type="reset">Cancel</button>
+        </fieldset>
+    </form>
+
+    <script>
+        document.getElementById("pizzaForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Ambil data form
+            const name = document.getElementById("name").value;
+            const address = document.getElementById("address").value;
+            const telephone = document.getElementById("telephone").value;
+            const email = document.getElementById("email").value;
+            const delivery = document.getElementById("delivery").value;
+            const crust = document.querySelector("input[name='crust']:checked").value;
+            const count = document.getElementById("count").value;
+
+            // Ambil toppings yang dipilih
+            const toppings = [];
+            document.querySelectorAll("input[name='toppings']:checked").forEach(cb => {
+                toppings.push(cb.value);
+            });
+            const toppingsList = toppings.join(", ") || "Tidak ada";
+
+            // Buat URL dengan query parameters
+            const queryParams = new URLSearchParams({
+                name: name,
+                address: address,
+                phone: telephone,
+                email: email,
+                instructions: delivery,
+                crust: crust,
+                toppings: toppingsList,
+                quantity: count
+            });
+
+            // Redirect ke halaman kedua dengan data
+            window.location.href = "praktikum2b.html?" + queryParams.toString();
+        });
+    </script>
+</body>
+
+</html>

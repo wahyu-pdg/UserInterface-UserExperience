@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pemesanan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar {
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            font-weight: bold;
+            margin: 10px;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+        
+        .container {
+            background: white;
+            border: 2px solid #000;
+            margin: 20px;
+            padding: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+        
+        .image-section {
+            text-align: center;
+        }
+        
+        .image-placeholder {
+            width: 250px;
+            height: 250px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+            font-size: 12px;
+            text-align: center;
+            color: #999;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .info-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+        }
+        
+        .info-group label {
+            width: 150px;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .info-group .value {
+            flex: 1;
+            border: 2px solid #000;
+            padding: 8px;
+            background-color: #f9f9f9;
+            word-break: break-word;
+        }
+        
+        .info-group textarea.value {
+            min-height: 80px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+        }
+        
+        .checkbox-group {
+            margin-left: 165px;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+            accent-color: #4CAF50;
+        }
+        
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-pay {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .btn-pay:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-back {
+            background-color: #f0f0f0;
+            color: #000;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn-back:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="form-input.html">Home</a>
+        <span>|</span>
+        <a href="#">Register</a>
+        <span>|</span>
+        <a href="#">Policy</a>
+        <span>|</span>
+        <a href="#">About</a>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <!-- Bagian Gambar -->
+           <div class="image-section">
+                <div class="image-placeholder" id="imagePreview">
+                    <img src="img/gambar.jpg" alt="Foto Produk">
+                </div>
+            </div>
+            
+            <!-- Bagian Info -->
+            <div class="info-section">
+                <div class="info-group">
+                    <label>Title Here :</label>
+                    <div class="value" id="titleDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Description :</label>
+                    <textarea class="value" id="descriptionDisplay" readonly></textarea>
+                </div>
+                
+                <div class="info-group">
+                    <label>Total Amount :</label>
+                    <div class="value" id="totalDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Pay to :</label>
+                    <div class="value" id="accountNumberDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Payment Type :</label>
+                    <div class="value" id="bankDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Account Holder :</label>
+                    <div class="value" id="accountHolderDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Account No :</label>
+                    <div class="value" id="accountNumberDisplay2">-</div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="sendPhoneDisplay" disabled>
+                        Send to Mobile Phone
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sendEmailDisplay" disabled>
+                        Email me copy of transaction
+                    </label>
+                </div>
+                
+                <div class="info-group">
+                    <label>Send to Mobile Phone :</label>
+                    <div class="value" id="mobilePhonesDisplay">-</div>
+                </div>
+                
+                <div class="info-group">
+                    <label>Send to Email :</label>
+                    <div class="value" id="emailsDisplay">-</div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-back" onclick="kembali()">← Kembali Edit</button>
+                    <button class="btn-pay" onclick="bayar()">Pay using QuickLink</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function tampilkanData() {
+            const pesanan = JSON.parse(sessionStorage.getItem('pesanan'));
+            
+            if (!pesanan) {
+                alert('Data tidak ditemukan!');
+                window.location.href = 'form-input.html';
+                return;
+            }
+            
+            // Tampilkan gambar
+            if (pesanan.image && pesanan.image !== 'none') {
+                document.getElementById('imageDisplay').style.backgroundImage = pesanan.image;
+                document.getElementById('imageDisplay').textContent = '';
+            }
+            
+            // Tampilkan data
+            document.getElementById('titleDisplay').textContent = pesanan.title || '-';
+            document.getElementById('descriptionDisplay').value = pesanan.description || '-';
+            document.getElementById('accountNumberDisplay').textContent = pesanan.accountNumber || '-';
+            document.getElementById('bankDisplay').textContent = pesanan.bank || '-';
+            document.getElementById('accountHolderDisplay').textContent = pesanan.accountHolder || '-';
+            document.getElementById('accountNumberDisplay2').textContent = pesanan.accountNumber || '-';
+            document.getElementById('mobilePhonesDisplay').textContent = pesanan.mobilePhones || '-';
+            document.getElementById('emailsDisplay').textContent = pesanan.emails || '-';
+            
+            // Set checkboxes
+            document.getElementById('sendPhoneDisplay').checked = pesanan.sendPhone || false;
+            document.getElementById('sendEmailDisplay').checked = pesanan.sendEmail || false;
+            
+            // Hitung total (simulasi: Rp1000 x jumlah transaksi)
+            const totalAmount = 1000 * (parseInt(pesanan.transaction) || 1);
+            document.getElementById('totalDisplay').textContent = '£' + totalAmount;
+        }
+        
+        function kembali() {
+            window.location.href = 'form-input.html';
+        }
+        
+        function bayar() {
+            alert('✓ Pembayaran berhasil diproses!\n\nTerima kasih telah berbelanja.');
+            sessionStorage.clear();
+            window.location.href = 'form-input.html';
+        }
+        
+        window.addEventListener('load', tampilkanData);
+    </script>
+</body>
+</html>

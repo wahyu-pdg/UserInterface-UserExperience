@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Message</title>
+
+    <style>
+        .chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 260px;
+            height: 350px;
+            border: 1px solid #000;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #pesanBox {
+            flex: 1;
+            padding: 5px;
+            overflow-y: auto;
+            border-bottom: 1px solid #000;
+            white-space: pre-line;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .inputArea {
+            display: flex;
+            padding: 5px;
+            gap: 5px;
+        }
+
+        .inputArea input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        .inputArea button {
+            padding: 5px 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Putra Gemink</h1>
+    <p>Scroll halaman ini. Chatbox tetap berada di pojok kanan bawah.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero iusto eos doloribus maxime eum quos reiciendis sequi. Exercitationem cupiditate fugit distinctio, velit libero harum placeat. Neque delectus reiciendis quidem laborum?</p>
+
+    <!-- CHATBOX -->
+    <div class="chatbox">
+        <div id="pesanBox"></div>
+
+        <div class="inputArea">
+            <input type="text" id="inputPesan" placeholder="Ketik pesan...">
+            <button onclick="kirim()">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        function kirim() {
+            let input = document.getElementById("inputPesan");
+            let isi = input.value.trim();
+            if (isi === "") return;
+            let pesanBox = document.getElementById("pesanBox");
+            pesanBox.textContent += isi + "\n";
+            pesanBox.scrollTop = pesanBox.scrollHeight;
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>

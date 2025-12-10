@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Black House Pizza</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+        table { 
+            margin-bottom: 20px; 
+        }
+        td { 
+            padding: 8px; 
+        }
+        button { 
+            padding: 10px 20px; 
+            background-color: #ff6b6b; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+        }
+        button:hover { 
+            background-color: #ff5252; 
+        }
+        hr { 
+            margin: 20px 0; 
+        }
+        .info-box { 
+            background-color: #f0f0f0; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin: 15px 0;
+        }
+        h3 {
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">THANK YOU!!!!</h1>
+    <hr>
+    <p>Thank you for ordering from Black Nigga Pizza. We have received the following information about your order:</p>
+    <br>
+    
+    <h3>Your Information</h3>
+    <div class="info-box">
+        <p><b>Name:</b> <span id="name"></span></p>
+        <p><b>Address:</b> <span id="address"></span></p>
+        <p><b>Telephone Number:</b> <span id="phone"></span></p>
+        <p><b>Email:</b> <span id="email"></span></p>
+        <p><b>Delivery Instructions:</b> <span id="instructions"></span></p>
+    </div>
+
+    <h3>Your Pizza Order</h3>
+    <div class="info-box">
+        <p><b>Crust:</b> <span id="crust"></span></p>
+        <p><b>Toppings:</b> <span id="toppings"></span></p>
+        <p><b>Quantity:</b> <span id="quantity"></span></p>
+    </div>
+
+    <button onclick="orderAgain()">Order Again</button>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        
+        // Tampilkan data personal
+        document.getElementById('name').textContent = params.get('name') || '-';
+        document.getElementById('address').textContent = params.get('address') || '-';
+        document.getElementById('phone').textContent = params.get('phone') || '-';
+        document.getElementById('email').textContent = params.get('email') || '-';
+        document.getElementById('instructions').textContent = params.get('instructions') || 'Tidak ada';
+        
+        // Tampilkan data pizza
+        document.getElementById('crust').textContent = params.get('crust') || '-';
+        document.getElementById('toppings').textContent = params.get('toppings') || 'Tidak ada';
+        document.getElementById('quantity').textContent = params.get('quantity') || '-';
+        
+        function orderAgain() {
+            window.location.href = 'file1.html';
+        }
+    </script>
+</body>
+</html>
